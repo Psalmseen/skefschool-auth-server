@@ -18,6 +18,7 @@ app.use(
   cors({
     credentials: true,
     origin: ['http://localhost:5173', 'https://skefschool.netlify.app'],
+    Headers: 'Origin, X-Requested-With, Content-Type, Accept',
   })
 );
 
