@@ -41,6 +41,7 @@ app.post('/api/login', async (req, res, next) => {
     //   TODO: Implement log out on the front end
     //  TODO: Move the OAuth server to its own folder and push all file to github
     //  TODO: Implement Change password
+    //  TODO: Implement Change password
     const accessToken = jwt.sign(
       { userId: user._id.toString() },
       process.env.JWT_ACCESS_TOKEN_KEY as Secret,
