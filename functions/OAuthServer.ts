@@ -124,7 +124,8 @@ export const connect = async () => {
   if (conn === null) {
     conn = mongoose
       .connect(
-        `mongodb+srv://Psalmseen:${process.env.DB_PASSWORD}@cluster0.duppj.mongodb.net/${process.env.COLLECTION}?retryWrites=true&w=majority`,
+        `mongodb+srv://Psalmseen:${process.env.DB_PASSWORD}@skefschool.bouctb5.mongodb.net/${process.env.COLLECTION}?retryWrites=true&w=majority`,
+
         { serverSelectionTimeoutMS: 5000 }
       )
       .then(() => mongoose);

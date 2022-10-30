@@ -4,7 +4,8 @@
   "description": "The Oauth server for the skef school project",
   "main": "OAuthServer.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "netlify dev -p 9000"
   },
   "author": "Psalmseen",
   "license": "ISC",
