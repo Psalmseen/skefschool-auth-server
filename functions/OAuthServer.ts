@@ -51,10 +51,14 @@ app.post('/api/login', async (req, res, next) => {
     );
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
+      secure: true,
+      sameSite: 'none',
     });
     res.cookie('accessToken', accessToken, {
       expires: new Date(new Date().getTime() + 5 * 60 * 1000),
       httpOnly: true,
+      secure: true,
+      sameSite: 'none',
     });
     user.refreshToken = refreshToken;
     await user.save();
@@ -91,6 +95,8 @@ app.get('/token', async (req, res) => {
   );
   res.cookie('accessToken', accessToken, {
     expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+    secure: true,
+    sameSite: 'none',
     httpOnly: true,
   });
 });
