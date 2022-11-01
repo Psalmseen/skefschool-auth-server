@@ -105,6 +105,7 @@ app.get('/token', async (req, res) => {
     sameSite: 'None',
     httpOnly: true,
   });
+  res.status(200).json({ message: 'Successful', ...req.cookies });
 });
 
 app.get('/api/logout', async (req, res, next) => {
@@ -119,7 +120,7 @@ app.get('/api/logout', async (req, res, next) => {
   user.save();
   res.clearCookie('accessToken');
   res.clearCookie('refreshToken');
-  res.end();
+  res.status(200).json({ message: 'Successful', ...req.cookies });
 });
 
 app.post('/api/change-passowrd', async (req, res, next) => {
