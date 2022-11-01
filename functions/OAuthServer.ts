@@ -21,7 +21,7 @@ app.use(
     Headers: 'Origin, X-Requested-With, Content-Type, Accept',
   })
 );
-
+app.set('trust proxy', 1);
 app.get('/', (req, res) => {
   res.send('Welcome to SKEF school OAuth server');
 });
