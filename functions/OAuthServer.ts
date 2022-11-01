@@ -105,25 +105,22 @@ app.get('/token', async (req, res) => {
     sameSite: 'None',
     httpOnly: true,
   });
-  res.status(200).json({ message: 'Successful', ...req.cookies });
+  res.status(200).end();
 });
 
 app.get('/api/logout', async (req, res, next) => {
   const { refreshToken } = req.cookies;
   const user = await User.findOne({ refreshToken });
   if (!user) {
-    return res
-      .status(403)
-      .json({
-        message: 'You must be logged in to perform this operation',
-        token: refreshToken,
-      });
+    return res.status(403).json({
+      message: 'You must be logged in to perform this operation',
+    });
   }
   user.refreshToken = '';
   user.save();
   res.clearCookie('accessToken');
   res.clearCookie('refreshToken');
-  res.status(200).json({ message: 'Successful', ...req.cookies });
+  res.status(200).json({ message: 'Logout successful' });
 });
 
 app.post('/api/change-passowrd', async (req, res, next) => {
@@ -135,6 +132,7 @@ app.post('/api/change-passowrd', async (req, res, next) => {
     accessToken,
     process.env.JWT_ACCESS_TOKEN_KEY as Secret
   ) as any;
+  // Complete this funcion
 });
 let conn: any = null;
 export const connect = async () => {
