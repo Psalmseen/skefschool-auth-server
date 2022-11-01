@@ -114,7 +114,10 @@ app.get('/api/logout', async (req, res, next) => {
   if (!user) {
     return res
       .status(403)
-      .json({ message: 'You must be logged in to perform this operation' });
+      .json({
+        message: 'You must be logged in to perform this operation',
+        token: refreshToken,
+      });
   }
   user.refreshToken = '';
   user.save();
