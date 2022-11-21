@@ -110,6 +110,7 @@ app.get('/token', async (req, res) => {
 
 app.get('/api/logout', async (req, res, next) => {
   const { refreshToken } = req.cookies;
+  console.log(refreshToken);
   const user = await User.findOne({ refreshToken });
   if (!user) {
     return res.status(403).json({
