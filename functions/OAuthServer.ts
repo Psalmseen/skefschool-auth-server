@@ -22,9 +22,7 @@ app.use(
   })
 );
 app.set('trust proxy', 1);
-app.get('/', (req, res) => {
-  res.send('Welcome to SKEF school OAuth server');
-});
+
 app.post('/api/login', async (req, res, next) => {
   const { email, password } = req.body;
   try {
